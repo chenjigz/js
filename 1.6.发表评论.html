@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发表评论</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box {
+            margin: 100px auto;
+            width: 500px;
+            border: 1px solid black;
+        }
+
+        textarea {
+            width: 350px;
+        }
+
+        #ul li {
+            position: relative;
+            padding-left: 20px;
+            padding-right: 60px;
+            white-space: normal;
+            word-break: break-all;
+            word-wrap: break-word;
+            border-bottom: 1px solid #000;
+        }
+
+        #ul li a {
+            position: absolute;
+            right: 5px;
+            bottom:  0;
+            display: inline-block;
+            width: 50px;
+            color: crimson;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="text_input">
+            <label for="">发表评论:
+                <textarea name="" id="text" cols="30" rows="10"></textarea>
+            </label>
+            <button id="btn">发表</button>
+        </div>
+        <div id="ul">
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            btn.addEventListener('click', function () {
+                var content = document.getElementById('text');
+                if (content.value.length != 0) {
+                    var ul = document.querySelector('#ul ul');
+                    var li = document.createElement('li');
+                    li.innerHTML = content.value + '<a herf="javascript:;">删除</a>';
+                    if (ul.childElementCount === 0) {
+                        ul.appendChild(li);
+                    } else {
+                        ul.insertBefore(li, ul.children[0]);
+                    }
+                    content.value = '';
+
+                } else {
+                    alert('请输入评论内容');
+                }
+
+                var as = document.querySelectorAll('#ul li a');
+                for (var i = 0; i < as.length; i++) {
+                    var a = as[i];
+                    a.addEventListener('click', function () {
+                        this.parentElement.remove();
+                    }
+                    )
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

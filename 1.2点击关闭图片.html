@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关闭图片案列</title>
+    <style> 
+    #box {
+        position: relative;
+        width:501px;
+        margin: 10px auto;
+    }
+    #one {
+        width:500px;
+
+    }
+    #two {
+        position: absolute;
+        width: 50px;
+        right: 0;
+        top: 0;
+
+    }
+    </style>
+    
+</head>
+<body>
+    <div id="box">
+        <img  id="one" src="./images/2.jpg" alt="">
+        <img id="two" src="./images/关闭.jpg" alt="">
+    </div>
+    <script>
+    var box = document.getElementById('box');
+    var two = document.getElementById('two');
+    two.onclick = function( ) {
+        box.style.display = 'none';
+    }
+    </script>
+</body>
+</html>

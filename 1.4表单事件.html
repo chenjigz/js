@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+
+<body>
+    <label for="">上传图片：</label>
+    <input id="file" type="file">
+    <script>
+        window.onload = function () {
+            var file = document.getElementById('file');
+            file.onchange = function () {
+                var path = this.value;
+                var stuffix = path.substr(path.lastIndexOf('.') + 1);
+                var lowerstufffix = stuffix.toLowerCase();
+                if (lowerstufffix === 'jpg' || lowerstufffix === 'png' || lowerstufffix === 'gif') {
+
+                } else {
+                    alter('格式不正确');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

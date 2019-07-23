@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab选项卡</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box {
+            margin: 100px auto;
+            width: 500px;
+            border: 1px solid black;
+        }
+
+        #tab_head ul li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+            color: rgb(214, 189, 189);
+            background-color: rgb(221, 221, 221);
+        }
+
+        #tab_head ul li.current {
+            background-color: rgb(220, 230, 233);
+            color: cornsilk;
+        }
+
+        #tab_head ul li:hover {
+            color: crimson;
+        }
+
+        #tab_content div {
+            display: none;
+        }
+
+        #tab_content div.current {
+            display: block;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="tab_head">
+            <ul>
+                <li class="current">公告</li>
+                <li>规则</li>
+                <li>论坛</li>
+                <li>安全</li>
+                <li>公益</li>
+            </ul>
+        </div>
+        <div id="tab_content">
+            <div class="current">Microsemi offers easy migration to advanced features through pin compatibility,
+                starting from the lower
+                cost VSC8489 PHY-only option, to the more integrated</div>
+            <div>Microsemi offers easy migrationmore integrated</div>
+            <div>Microsemi offers easy migration to advanced features through pin compatibility, starting from the lower
+                cost VSC8489 PHY-only option, to the more integrated</div>
+            <div>Microsemi offers easy migration to advanced features through pin compatibility, starting from the lower
+                cost VSC8489 PHY-only option, to the more integrated</div>
+            <div>Microsemi offers easy migration to advanced features through pin compatibility, starting from the lower
+                cost VSC8489 PHY-only option, d</div>
+
+        </div>
+    </div>
+    <script>
+        var lis = document.querySelectorAll('#tab_head ul li');
+        var divs = document.querySelectorAll('#tab_content div');
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].index = i;
+        }
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            lis[i].onclick = qiehuan;
+            }
+        function qiehuan() {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                this.className = 'current';
+                var index = this.index;
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].className = '';
+                }
+                divs[index].className = 'current';
+        }
+    </script>
+</body>
+
+</html>
